@@ -35,13 +35,13 @@
 		</div>
 		<!-- How to Play Button -->
 		<div class="button-container">
-			<div class="row justify-content-left">
+			<div class="row justify-content-center">
 				<button id="how-to-play-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#howToPlayModal"><i class="fa fa-gamepad d-block"></i> How To Play</button>
 			</div>
 		</div>
       <!-- Settings Button--> 
        <div class="button-container">
-			<div class="row justify-content-right">
+			<div class="row justify-content-center">
 				<button id="settings-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#settingsModal"><i class="fa fa-cogs d-block"></i> Settings </button>
 			</div>
 		</div> 
@@ -60,7 +60,7 @@
 					<!-- Control -->
 					<div class="control">
 						
-						<div id="turn-screen" class="num-display">||</div>
+						<div id="turn-screen">||</div>
 						<div id="start" class="start-btn">PLAY</div>
 						<!--<div class="container strict-container">
 							<div class="control-label strict-label">
@@ -120,7 +120,7 @@
 
 <!-- Settings Modal Section -->
 		<div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="scrollTitle" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-scrollable" role="document">
+			<div class="modal-dialog modal-sm modal-dialog-scrollable" role="document">
 				<div class="modal-content">
 					<!-- Settings Modal Header -->
 					<div class="modal-header px-0 pl-4">
@@ -132,14 +132,20 @@
 					<!-- Settings Modal Body -->
 					<div class="modal-body settings-modal-body">
 						<div class="buttons-box m-2 px-2 py-2">
-							<a id="modal-scroll" href="#settings-heading-modal"><i class="fa fa-sort-down"></i></a>
-							<h3 class="text-center"><b>Objective:</b></h3>
-							 '<br>
-<br>
-							<h3 class="text-center"><b>To Win:</b>
-                            <br>
-							<h3 id="settings-heading-modal" class="text-center"><b>Button:</b></h3>
-							<p><strong class="h5 font-weight-bold">PLAY - </strong></p>
+							<a id="modal-scroll" href="#settings-heading-modal"></a>
+							
+<br>                               <div id="switches">
+        <input type="checkbox" class="toggle" id="message">
+        
+        <input type="checkbox" class="toggle" id="strict">
+      </div>
+      <div class="text1">
+        <span>Message</span>
+     </div>
+     <div class="text2">
+     <span>STRICT</span>
+     </div>
+							
 						</div>
 					</div>
 					<!-- Settings Modal Footer -->
