@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Indie Flower:100,200,300,400,500,600,700,800');
-@import url('https://fonts.googleapis.com/css?family=Arhitects Daughter:100,200,300,400,500,600,700,800');
-
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter|Indie+Flower&display=swap');
 
 
 html,
@@ -13,13 +11,13 @@ body {
 }
 
 body {
-    background: url(../images/hip-square.png);
-    background-size: auto;
-    font-family: 'Arhitects Daughter', cursive, sans-serif;
-    -webkit-text-shadow: 1px 1px 6px #000000;
-    -moz-text-shadow: 1px 1px 6px #000000;
-    -o-text-shadow: 1px 1px 6px #000000;
-    text-shadow: 1px 1px 6px #000000;
+    background: url(../images/hip-square.png) repeat center center fixed;
+    /* background-size: contain;*/
+    font-family: 'Indie flower', cursive, sans-serif;
+    -webkit-text-shadow: 1px 1px 2px #000000;
+    -moz-text-shadow: 1px 1px 2px #000000;
+    -o-text-shadow: 1px 1px 2px #000000;
+    text-shadow: 1px 1px 2px #000000;
     margin: 0;
     width: 100%;
     height: 100%;
@@ -53,7 +51,7 @@ body {
     pointer-events: none;
 }
 
-/* CONTAINERS SECTION */
+/* Containers Section */
 
 .heading-container {
     background-color: rgba(112, 112, 112, 0.3);
@@ -61,7 +59,7 @@ body {
     text-align: center;
 }
 
-.board-container {
+.game-board-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -72,7 +70,7 @@ body {
     max-width: 600px;
     max-height: 600px;
     border-radius: 50%;
-    color: #000000;
+    background-color: #fff;
     margin-bottom: 230px;
 }
 
@@ -88,14 +86,15 @@ body {
 .footer-container {
     position: absolute;
     background-color: rgba(112, 112, 112, 0.3);
-    color: #000000;
+    color:#000000;
     bottom: 0;
     text-align: center;
+    font-weight: 600;
 }
 
-/* GAME BOARD COLORS */
+/* Game Board Colors */
 
-.pad {
+.side {
     position: relative;
     float: left;
     width: 50%;
@@ -110,76 +109,78 @@ body {
 
 }
 
-.green-pad {
-    background-color: #3da22c;
+.green-side {
+    background-color: #3da23c;
     border-top-left-radius: 96%;
-    /*-webkit-box-shadow: inset 0 0 50px #31822c,
-    inset 20px 0 80px #2a4c14,
-    inset -20px 0 80px #37bd2b,
-    inset 20px 0 300px #a5ce8d,
-    inset -20px 0 300px #254e00,
+    -webkit-box-shadow: inset 0 0 50px #31822c,
+    inset 20px 0 80px #254e00 ,
+    inset -20px 0 80px #a5ce8d,
+    inset 20px 0 300px #37bd2b,
+    inset -20px 0 300px #2a4c14,
     1px 0 #000;
     box-shadow: inset 0 0 50px #31822c,
-    inset 20px 0 80px #2a4c14,
-    inset -20px 0 80px #37bd2b,
-    inset 20px 0 300px #a5ce8d,
-    inset -20px 0 300px #254e00,
-    1px 0 #000;*/
+    inset 20px 0 80px #254e00,
+    inset -20px 0 80px #a5ce8d,
+    inset 20px 0 300px #37bd2b,
+    inset -20px 0 300px #2a4c14,
+    1px 0 #000;
 }
 
-.red-pad {
-    background-color: #a90202;
+.red-side {
+    background-color: #a90302;
     border-top-right-radius: 96%;
-    /*-webkit-box-shadow: inset 0 0 50px #e00b0b,
-    inset 20px 0 80px #542727,
-    inset -20px 0 80px #bd2b2b,
-    inset 0px 0 300px #ef8787,
-    inset -20px 0 300px #961717,
+    -webkit-box-shadow: inset 0 0 50px #e00b1b,
+    inset 20px 0 80px #961718,
+    inset -20px 0 80px #ef8787,
+    inset 0px 0 300px #bd2b2b,
+    inset -20px 0 300px #542727,
     1px 0 #000;
-    box-shadow: inset 0 0 50px #e00b0b,
-    inset 20px 0 80px #542727,
-    inset -20px 0 80px #bd2b2b,
-    inset 0px 0 300px #ef8787,
-    inset -20px 0 300px #961717,
-    1px 0 #000;*/
+    box-shadow: inset 0 0 50px #e00b1b,
+    inset 20px 0 80px #961718,
+    inset -20px 0 80px #ef8787,
+    inset 0px 0 300px #bd2b2b,
+    inset -20px 0 300px #542727,
+    1px 0 #000;
 }
 
-.yellow-pad {
-    background-color: #b5b301;
+.yellow-side {
+    background-color: #b5b311;
     border-bottom-left-radius: 96%;
-    /*-webkit-box-shadow: inset 0 0 50px #efdb2f,
-    inset 20px 0 80px #50490d,
-    inset -20px 0 80px #f5df1f,
-    inset 20px 0 300px #c1b97a,
+    -webkit-box-shadow: inset 0 0 50px #efdb3f,
+    inset 20px 0 80px #50450d,
+    inset -20px 0 80px #c1b97a,
+    inset 20px 0 300px #f5df1f,
     inset -20px 0 300px #ab9d23,
     1px 0 #000;
-    box-shadow: inset 0 0 50px #efdb2f,
-    inset 20px 0 80px #50490d,
-    inset -20px 0 80px #f5df1f,
-    inset 20px 0 300px #c1b97a,
+    box-shadow: inset 0 0 50px #efdb3f,
+    inset 20px 0 80px #50450d,
+    inset -20px 0 80px #c1b97a,
+    inset 20px 0 300px #f5df1f,
     inset -20px 0 300px #ab9d23,
-    1px 0 #000;*/
+    1px 0 #000;
 }
 
-.blue-pad {
-    background-color: #0100a5;
+.blue-side {
+    background-color: #0100a7;
     border-bottom-right-radius: 96%;
-   /* -webkit-box-shadow: inset 0 0 50px #2f3eef,
-    inset 20px 0 80px #101842,
-    inset -20px 0 80px #13029c,
-    inset 20px 0 300px #aebaf1,
-    inset -20px 0 300px #3836b9,
+    -webkit-box-shadow: inset 0 0 50px #2f5eef,
+    inset 20px 0 80px #3836b9,
+    inset -20px 0 80px #aebaf1,
+    inset 20px 0 300px #13029c,
+    inset -20px 0 300px #101842,
     1px 0 #000;
-    box-shadow: inset 0 0 50px #2f3eef,
-    inset 20px 0 80px #101842,
-    inset -20px 0 80px #13029c,
-    inset 20px 0 300px #aebaf1,
-    inset -20px 0 300px #3836b9,
-    1px 0 #000;*/
+    box-shadow: inset 0 0 50px #2f5eef,
+    inset 20px 0 80px #3836b9,
+    inset -20px 0 80px #aebaf1,
+    inset 20px 0 300px #13029c,
+    inset -20px 0 300px #101842,
+    1px 0 #000;
 }
+
+/* Game Board Colors With Light */
 
 .green-light {
-    background-color: rgba(79, 206, 55, 0.4);
+    background-color: rgba(78, 206, 55, 0.4);
     -webkit-box-shadow: inset 0 0 50px #31822c,
     inset 20px 0 80px #5fb928,
     inset -20px 0 80px #37bd2b,
@@ -251,9 +252,9 @@ body {
 }
 
 
-/* GAME CONTROL */
+/* Game Board Control */
 
-.controls {
+.control {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -261,7 +262,7 @@ body {
     -ms-flex-pack: center;
     justify-content: center;
     position: absolute;
-    background: url(../images/hip-square.png);
+    background: url(../images/hip-square.png) repeat center center fixed;
     top: 27%;
     left: 27%;
     width: 46vw;
@@ -277,30 +278,33 @@ body {
 }
 
 
-#number-counter {
+#turn-screen {
     position: absolute;
-    top: 152px;
-    color: #da2d2d;
-    background-color: #000;
+    top: 70px;
+    color: #000000;
+    background-color: #C0C0C0;
     width: 13vw;
     height: 10vw;
     max-width: 78px;
     max-height: 53px;
     margin: 0 auto;
-    border: solid 2px #da3d3d;
-    border-radius: 25px;
-    font-size: 1.5em;
+    border: solid 2px #d3d3d3 ;
+    border-radius: 15px;
+    font-size: 2.1em;
+    box-shadow: 2px 2px 15px #000000;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
 .start-btn {
     float: left;
-    margin-right: 2px;
-    margin-top: 60px;
+    margin-right: 3px;
+    margin-top: 137px;
     padding: 9px;
     cursor: pointer;
     line-height: 3em;
     font-weight: bold;
-    background-color: #d4d4d4;
+    font-size: 1.2em;
+    background-color: #C0C0C0;
     height: 68px;
     width: 68px;
     border-radius: 50%;
@@ -373,11 +377,11 @@ input:checked[type="checkbox"]:before {
 }
 
 
-/* MODALS SECTION */
+/* Modals Section */
 
-/* Modal Buttons */
+/* Buttons */
 
-#rules-button {
+#how-to-play-button, #settings-button {
     width: 22.1vw;
     height: 9.7vw;
     max-width: 153px;
@@ -386,34 +390,16 @@ input:checked[type="checkbox"]:before {
     padding-top: 0;
     margin: 20px;
     border: none;
-    font-size: 18px;
+    color:#000000;
+    background-color: rgba(112, 112, 112, 0.3);
+    font-size: 21px;
     font-weight: 800;
-    background-color: rgba(112, 112, 112, 0.2);
-    color: #000000;
-    /*-webkit-text-shadow: 1px 1px 6px #000000;
-    -moz-text-shadow: 1px 1px 6px #000000;
-    -o-text-shadow: 1px 1px 6px #000000;
-    text-shadow: 1px 1px 6px #000000;*/
+    -webkit-text-shadow: 1px 1px 3px #000000;
+    -moz-text-shadow: 1px 1px 3px #000000;
+    -o-text-shadow: 1px 1px 3px #000000;
+    text-shadow: 1px 1px 3px #000000;
 }
 
-#settings-button {
-    width: 22.1vw;
-    height: 9.7vw;
-    max-width: 153px;
-    max-height: 61px;
-    border-radius: 20px;
-    margin-top: -10px;
-    margin: 20px;
-    border: none;
-    font-size: 18px;
-    font-weight: 800;
-    background-color: rgba(112, 112, 112, 0.2);
-    color: #000000;
-    /*-webkit-text-shadow: 1px 1px 6px #000000;
-    -moz-text-shadow: 1px 1px 6px #000000;
-    -o-text-shadow: 1px 1px 6px #000000;
-    text-shadow: 1px 1px 6px #000000;*/
-}
 
 #close-button,
 #close-button-2,
@@ -425,7 +411,7 @@ input:checked[type="checkbox"]:before {
     height: 2.4em;
 }
 
-#rules-button:active,
+#how-to-play-button:active,
 #close-button:active,
 #close-button-2:active,
 #close-button-3:active,
@@ -447,67 +433,62 @@ input:checked[type="checkbox"]:before {
 .close,
 .close:hover {
     color: #000000;
-    -webkit-text-shadow: 1px 1px 8px #000000;
-    -moz-text-shadow: 1px 1px 8px #000000;
-    -o-text-shadow: 1px 1px 8px #000000;
-    text-shadow: 1px 1px 8px #000000;
+    text-shadow: 2px 2px 4px #000000;
 }
 
-/* Modal Body */
+/* Modal Body Section */
 
 .modal-content {
-    background-size: cover;
-    background: url(../images/hip-square.png);
+    background: url(../images/hip-square.png) repeat center center fixed;
     color: #000000;
-    font-family: 'Indie Flower', cursive, sans-serif;
+    font-family: 'Arhitects Daughter', cursive, sans-serif;
     top: 3vh;
     width: 90%;
     margin: auto;
-    /*-webkit-text-shadow: 1px 1px 2px #000000;
+    -webkit-text-shadow: 1px 1px 2px #000000;
     -moz-text-shadow: 1px 1px 2px #000000;
     -o-text-shadow: 1px 1px 2px #000000;
-    text-shadow: 1px 1px 2px #000000;*/
+    text-shadow: 1px 1px 2px #000000;
 }
 
 .win-modal-content {
-    background: url(../images/hip-square.png);
+    background: url(../images/hip-square.png) no-repeat center center;
     background-size: cover;
-    background-color: #d4d4d4;
-    color: #000000;
-    font-family: 'Indie Flower', sans-serif;
+    color: #fff;
+    font-family: 'Arhitects Daughter', cursive, sans-serif;
     top: 3vh;
     width: 90%;
     margin: auto;
-    -webkit-text-shadow: 1px 1px 6px #000000;
-    -moz-text-shadow: 1px 1px 6px #000000;
-    -o-text-shadow: 1px 1px 6px #000000;
-    text-shadow: 1px 1px 6px #000000;
+    -webkit-text-shadow: 1px 1px 2px #000000;
+    -moz-text-shadow: 1px 1px 2px #000000;
+    -o-text-shadow: 1px 1px 2px #000000;
+    text-shadow: 1px 1px 2px #000000;
 }
 
 .modal-title {
     text-align: center;
     width: 100%;
-    font-family: 'Indie Flower', cursive, sans-serif;
     font-size: 2em;
 }
 
-.modal-body-rules {
-    font-family: 'Indie Flower', cursive, sans-serif;
+.howToPlay-modal-body {
+    font-family: 'Arhitects Daughter', cursive sans-serif;
     height: 55vh;
 }
 
-.fa-angle-down {
+.fa-sort-down {
     float: right;
-    color: #d4d4d4;
-    font-size: 2.7em;
-    animation: scrollDown 0.4s alternate-reverse infinite ease-in-out;
+    color: #000000;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 1.9em;
+    animation: scrollDown 0.7s alternate-reverse infinite ease-in-out;
 }
 
-/* MEDIA QUERIES */
+/* Media Queries */
 
 @media screen and (max-width:600px) {
-   
-    #number-counter {
+    
+    #turn-screen {
         top: 11.5vw;
         width: 13vw;
         height: 9vw;
@@ -555,54 +536,26 @@ input:checked[type="checkbox"]:before {
         font-size: 2.7vw;
         border-radius: 3vw;
     }
-    .green-pad {
+    .green-side {
         border-top-left-radius: 47vw;
     }
 
-    .red-pad {
+    .red-side {
         border-top-right-radius: 47vw;
     }
 
-    .yellow-pad {
+    .yellow-side {
         border-bottom-left-radius: 47vw;
     }
 
-    .blue-pad {
+    .blue-side {
         border-bottom-right-radius: 47vw;
     }
 }
 
-@media screen and (max-width:420px) {
+@media screen and (max-width:400px) {
     .modal-header h5 {
         font-size: 7.7vw;
-    }
-    #number-counter {
-        top: 24.5vw;
-        width: 13vw;
-        height: 9vw;
-        font-size: 3.7vw;
-        line-height: 9.5vw;
-        border-radius: 2.3vw;
-    }
-    .start-btn {
-        font-size: 2.6vw;
-        height: 11.3vw;
-        width: 11.3vw;
-        margin-right: 0.3vw;
-        margin-top: 7.4vw;
-        padding: 1.6vw 1.4vw;
-    }
-    .start-btn:active {
-        font-size: 2.5vw;
-        padding-top: 1.8vw;
-    }
-    #rules-button {
-        font-size: 2.3vw;
-        border-radius: 3vw;
-    }
-    #settings-button {
-        font-size: 2.1vw;
-        border-radius: 3vw;
     }
 }
 
@@ -611,22 +564,18 @@ input:checked[type="checkbox"]:before {
         font-size: 1.8em;
     }
     #rules-button {
-        font-size: 2.3vw;
+        font-size: 2.5vw;
     }
-     #settings-button {
-        font-size: 2.1vw;
-        border-radius: 3vw;
-    }
-    .green-pad {
+    .green-side {
         border-top-left-radius: 45vw;
     }
-    .red-pad {
+    .red-side {
         border-top-right-radius: 45vw;
     }
-    .yellow-pad {
+    .yellow-side {
         border-bottom-left-radius: 45vw;
     }
-    .blue-pad {
+    .blue-side {
         border-bottom-right-radius: 45vw;
     }
 }
