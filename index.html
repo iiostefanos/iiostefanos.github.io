@@ -7,10 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="description" content="Simon Memory Game">
-	<meta name="keywords" content="Simon Memory, Game, Brain Training, Memory, Game, Funny, Challenge">
+	<meta name="keywords" content="Simon Game, Memory, Memory Game, Brain Training, Memory, Game, Funny, Challenge">
 	<meta name="author" content="Stefan Sarbu">
 
-	<!-- Title -->
+	<!--  Game Title -->
 	<title> the Simon Game</title>
 
 	<!-- Favicon -->
@@ -19,57 +19,57 @@
 	<!-- CSS Link -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Indie+Flower&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
 
 </head>
 
 <body>
-	<!-- Wrapper -->
+	<!-- Main container -->
 	<div id="wrapper" class="clearfix">
 		<!-- Main Heading -->
 		<div class="container-fluid heading-container">
 			<div class="row justify-content-center">
-				<h1 class="m-0 py-3">SIMON GAME</h1>
+				<h1 class="m-0 py-3">Simon Game</h1>
 			</div>
 		</div>
-		<!-- Rules Button -->
+		<!-- How to Play Button -->
 		<div class="button-container">
-			<div class="row justify-content-center">
-				<button id="rules-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#rulesModal"><i class="fa fa-gamepad d-block"></i> How To Play</button>
+			<div class="row justify-content-left">
+				<button id="how-to-play-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#howToPlayModal"><i class="fa fa-gamepad d-block"></i> How To Play</button>
 			</div>
 		</div>
-       
-       <!-- Settings Button -->
-		<div class="button-container">
-			<div class="row justify-content-center">
-				<button id="settings-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal"><i class="fa fa-cog d-block"></i>Settings</button>
+      <!-- Settings Button--> 
+       <div class="button-container">
+			<div class="row justify-content-right">
+				<button id="settings-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#settingsModal"><i class="fa fa-cogs d-block"></i> Settings </button>
 			</div>
-		</div>
+		</div> 
         
-		<!-- Simon Board -->
-		<div class="container-fluid board-container">
+		<!-- Game Board -->
+		<div class="container-fluid game-board-container">
 			<div class="row no-gutters">
-				<div class="simon-board col">
-					<!-- Pad Colours -->
-					<div class="pads">
-						<div id="1" class="pad green-pad disabled"></div>
-						<div id="2" class="pad red-pad disabled"></div>
-						<div id="3" class="pad yellow-pad disabled"></div>
-						<div id="4" class="pad blue-pad disabled"></div>
+				<div class="game-board col">
+					<!-- Side Colors -->
+					<div class="sides">
+						<div id="1" class="side green-side disabled"></div>
+						<div id="2" class="side red-side disabled"></div>
+						<div id="3" class="side yellow-side disabled"></div>
+						<div id="4" class="side blue-side disabled"></div>
 					</div>
-					<!-- Controls -->
-					<div class="controls">
+					<!-- Control -->
+					<div class="control">
+						
+						<div id="turn-screen" class="num-display">||</div>
 						<div id="start" class="start-btn">PLAY</div>
-				        <div id="number-counter" class="num-display">-</div>
-
 						<!--<div class="container strict-container">
 							<div class="control-label strict-label">
 								<p class="m-0 p-0">STRICT</p>
 								<div class="strict-switch">
 									<input type="checkbox" id="strict" class="toggle" checked/>
 								</div>
-							</div>
-						</div>-->
+							</div>-->
+						</div>
 					</div>
 				</div>
 			</div>
@@ -78,60 +78,85 @@
 		<!-- Footer -->
 		<div class="container-fluid footer-container">
 			<div class="row justify-content-center">
-				<p class="footer m-0 py-3">Stefan Sarbu's Game Project</p>
+				<p class="footer m-0 py-3">Game Project by Stefan Sarbu</p>
 			</div>
 		</div>
 
-		<!-- Rules Modal -->
-		<div class="modal fade" id="rulesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+		<!-- How To Play Modal Section -->
+		<div class="modal fade" id="howToPlayModal" tabindex="-1" role="dialog" aria-labelledby="scrollTitle" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-scrollable" role="document">
 				<div class="modal-content">
-					<!-- Rules Modal Header -->
+					<!-- How to Play Modal Header -->
 					<div class="modal-header px-0 pl-4">
-						<h5 class="modal-title" id="exampleModalScrollableTitle">How to Play</h5>
+						<h5 class="modal-title" id="scrollTitle">How To Play</h5>
 						<button type="button" class="close pl-0 mr-2" data-dismiss="modal" aria-label="Close">
           					<span aria-hidden="true">&times;</span>
         				</button>
 					</div>
-					<!-- How to Play Modal Body -->
-					<div class="modal-body modal-body-rules">
+					<!-- How To Play Modal Body -->
+					<div class="modal-body howToPlay-modal-body">
 						<div class="buttons-box m-2 px-2 py-2">
-							<a id="modal-scroll" href="#rules-heading-modal"><i class="fa fa-angle-down"></i></a>
+							<a id="modal-scroll" href="#howToPlay-heading-modal"><i class="fa fa-sort-down"></i></a>
 							<h3 class="text-center"><b>Objective:</b></h3>
-							<p>When you press the 'PLAY' button, the game will begin with a flash of 1 (one) of the 4 (four) colored pads from the board and will increment by 1 (one) on the number display with each pattern you've followed correctly. Your goal is to repeat the pattern that has
-                                been generated by the computer until you reach the maximum score of <strong>'20'</strong> to win the game. This game is a great test of skill and memory so stay focused and try not to make a mistake!
-                            </p><br>
-                            <h3 class="text-center"><b>To Win:</b></h3>
-                            <ul class="p-0 pl-3">
-                                <li>To become the WINNER of the Simon Game, you must reach a score of <strong>'20'</strong>.</li>
-                                <li>If 'STRICT' mode is not active and you click to activate it, the number counter will start back at '0'.</li>
-                                <li>You can switch off 'STRICT' mode at any point without having to start a new game.</li>
+							 'PLAY' button will start the game. First, the game will begin with a flash of 1 (one) of the 4 (four) colored sides from the board and will increase by 1 (one) on the number display with each pattern the player followed correctly. The goal of the Simon Game is to repeat the pattern that the computer  has generated until the player will be able to reach the end of the game by scoring  <strong>'20'</strong>, the maximum, in order to be the WINNER of the Simon Game. So, if you think that you have a great skill and memory, play, stay focused and try not to make mistakes! Accept challenge ?!?<br>
+<br>
+							<h3 class="text-center"><b>To Win:</b></h3>
+							<ul class="p-0 pl-3">
+								<li>Reaching to the score of <strong>'20'</strong> will make the player become the WINNER of the Simon Game.</li>
+                                <li>However, if 'STRICT' mode is not activated and the player clicks to activate it, the number counter will start back at '0'.</li>
+                                <li>The player can opt to switch off 'STRICT' mode at any time, not having to begin a new game.</li>
                             </ul><br>
-                            <h3 id="rules-heading-modal" class="text-center"><b>Button:</b></h3>
-                            <p><strong class="h5 font-weight-bold"> PLAY - </strong>To begin the game, press 'PLAY' and your first sequence will commence. As well you can click 'PLAY' to begin a new game at any time!</p>
-                            
-                            <h3 id="rules-heading-modal" class="text-center"><b>Settings:</b></h3>
-                            <p><b class="h5 font-weight-bold">1. STRICT - </b>When 'STRICT' mode is activated, if you at any point get your sequence wrong, it will be game over. If 'STRICT' mode is not activated, then you can keep trying the current sequence all over
-                                again until you get it correctly and move to the next level.</p>
-                            <p><strong class="h5 font-weight-bold">2. Message - </strong>If 'Message' is ticked then after each level that is played correctly the player will receive a message. </p>
-
+							<h3 id="howToPlay-heading-modal" class="text-center"><b>Button:</b></h3>
+							<p><strong class="h5 font-weight-bold">PLAY - </strong>To start the Simon Game, just simply press 'PLAY'. If the player decides at some time to begin all over again will have to just click 'PLAY'.</p>
 						</div>
 					</div>
-					<!-- How to Play Modal Footer -->
+					<!-- How To Play Modal Footer -->
 					<div class="modal-footer">
-						<button id="close-button" type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+						<button id="close-button" type="button" class="btn btn-danger" data-dismiss="modal">EXIT</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- Lose Modal -->
-		<div class="modal fade" id="loseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<!-- Settings Modal Section -->
+		<div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="scrollTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable" role="document">
+				<div class="modal-content">
+					<!-- Settings Modal Header -->
+					<div class="modal-header px-0 pl-4">
+						<h5 class="modal-title" id="scrollTitle">Settings</h5>
+						<button type="button" class="close pl-0 mr-2" data-dismiss="modal" aria-label="Close">
+          					<span aria-hidden="true">&times;</span>
+        				</button>
+					</div>
+					<!-- Settings Modal Body -->
+					<div class="modal-body settings-modal-body">
+						<div class="buttons-box m-2 px-2 py-2">
+							<a id="modal-scroll" href="#settings-heading-modal"><i class="fa fa-sort-down"></i></a>
+							<h3 class="text-center"><b>Objective:</b></h3>
+							 '<br>
+<br>
+							<h3 class="text-center"><b>To Win:</b>
+                            <br>
+							<h3 id="settings-heading-modal" class="text-center"><b>Button:</b></h3>
+							<p><strong class="h5 font-weight-bold">PLAY - </strong></p>
+						</div>
+					</div>
+					<!-- Settings Modal Footer -->
+					<div class="modal-footer">
+						<button id="close-button" type="button" class="btn btn-danger" data-dismiss="modal">EXIT</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Lose Modal Section -->
+		<div class="modal fade" id="loseModal" tabindex="-1" role="dialog" aria-labelledby="scrollTitle" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-scrollable" role="document">
 				<div class="modal-content">
 					<!-- Lose Modal Header -->
 					<div class="modal-header px-0 pl-4">
-						<h5 class="modal-title text-uppercase" id="exampleModalScrollableTitle-2">Game Over</h5>
+						<h5 class="modal-title" id="scrollTitle-2">Game Over</h5>
 						<button type="button" class="close pl-0 mr-2" data-dismiss="modal" aria-label="Close">
           					<span aria-hidden="true">&times;</span>
         				</button>
@@ -147,81 +172,42 @@
 					<!-- Lose Modal Footer -->
 					<div class="modal-footer justify-content-between">
 						<button id="start-modal-button" type="button" class="btn btn-success" data-dismiss="modal">PLAY</button>
-						<button id="close-button-2" type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+						<button id="close-button-2" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- Win Modal -->
-		<div class="modal fade" id="winModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+		<!-- Winner Modal Section -->
+		<div class="modal fade" id="winModal" tabindex="-1" role="dialog" aria-labelledby="scrollTitle" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-scrollable" role="document">
 				<div class="modal-content win-modal-content">
-					<!-- Win Modal Header -->
+					<!-- Winner Modal Header -->
 					<div class="modal-header px-0 pl-4">
-						<h5 class="modal-title text-uppercase" id="exampleModalScrollableTitle-3">Winner!</h5>
+						<h5 class="modal-title text-uppercase" id="scrollTitle-3">!WINNER!</h5>
 						<button type="button" class="close pl-0 mr-2" data-dismiss="modal" aria-label="Close">
           					<span aria-hidden="true">&times;</span>
         				</button>
 					</div>
-					<!-- Win Modal Body -->
+					<!-- Winner Modal Body -->
 					<div class="modal-body">
 						<div class="buttons-box m-2 px-2 py-2 text-center">
-							<h4 class="text-uppercase">You Won with score of:</h4><br>
+							<h4 class="text-uppercase">You Won with the score of:</h4><br>
 							<h2 id="win-modal-display" class="text-center">--</h2>
 							<h5 class="m-0 mt-5 text-center font-weight-bold text-uppercase">Congrats!</h5>
 							<p class="m-0 mt-3 text-center">Please Click 'PLAY' To Start Again</p>
 						</div>
 					</div>
-					<!-- Win Modal Footer -->
+					<!-- Winner Modal Footer -->
 					<div class="modal-footer justify-content-between">
 						<button id="start-modal-win-button" type="button" class="btn btn-success" data-dismiss="modal">PLAY</button>
-						<button id="close-button-3" type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		 <!-- Settings Modal -->
-		<div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-scrollable" role="document">
-				<div class="modal-content">
-					<!-- Settings Modal Header -->
-					
-						<button type="button" class="close pl-0 mr-2" data-dismiss="modal" aria-label="Close">
-          					<span aria-hidden="true">&times;</span>
-        				</button>
-					</div>
-					<!-- Settings Modal Body -->
-					<div class="modal-body">
-						<div class="container strict-container">
-							<div class="control-label strict-label">
-								<p class="m-0 p-0">STRICT</p>
-								<div class="strict-switch">
-									<input type="checkbox" id="strict" class="toggle" checked/>
-								</div>
-							</div>
-						</div>
-                        
-                      <div class="container message-container">
-							<div class="control-label message-label">
-								<p class="m-0 p-0">Message</p>
-								<div class="message-switch">
-									<input type="checkbox" id="strict" class="toggle" checked/>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Lose Modal Footer -->
-					<div class="modal-footer justify-content-between">
-						<button id="close-button-2" type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+						<button id="close-button-3" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
-
-		<!-- Sound Clips -->
+		<!-- Audio Samples -->
 		<audio id="sound-green" src="sounds/1_Cartoon_Boing.mp3"></audio>
 		<audio id="sound-red" src="sounds/2_Cartoon_Cowbell.mp3"></audio>
 		<audio id="sound-yellow" src="sounds/3_Electronic_Chime.mp3"></audio>
@@ -229,13 +215,13 @@
 		<audio id="sound-lost" src="sounds/lost-throat-clearing.mp3"></audio>
 		<audio id="sound-win" src="sounds/win-mega-raid.mp3"></audio>
 
-		<!-- Scripts located at the bottom of the body to ensure page is fully loaded before execution -->
+		<!-- Scripts are loaded here -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-		<script src="js/index.js"></script>
-	</div>
+		<script src="js/simon.js"></script>
+
 
 </body>
 
