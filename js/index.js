@@ -283,9 +283,9 @@ function verify() {
             $(countText).text('Again');
             setTimeout(function() {
                 $(countText).text(turn);
-                setTimeout(startPlay, 500);
-            }, 600);
-        }, 600);
+                setTimeout(startPlay, 700);
+            }, 900);
+        }, 900);
     }
     /* 
     STRICT mode is true, the computer's instance array doesn't match with the player's instance array, 'Else' statement will display that the player lost. Sides are disabled, losing sound heard, 'Lose' message in the count text displayed and all sides flashing at once. Flash dissapears, then the modal will appear showing the player's score.
