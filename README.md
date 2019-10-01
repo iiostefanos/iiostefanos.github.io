@@ -206,8 +206,8 @@ when each feature is running or not running at unexpected times.
     
     <br>
     <div> 
-    <img src="ReadMe-img/settings-modal1.png" width=240 alt="Settings modal ">
-    <img src="ReadMe-img/settings-modal2.png" width=240 alt="Settings modal ">
+    <img src="ReadMe-img/settings-modal1.png" width=274 alt="Settings modal ">
+    <img src="ReadMe-img/settings-modal2.png" width=274 alt="Settings modal ">
     </div><br><br>
 
 5. #### Lose Modal
