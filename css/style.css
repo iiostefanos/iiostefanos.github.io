@@ -12,7 +12,6 @@ body {
 
 body {
     background: url(../images/hip-square.png) repeat center center fixed;
-    /* background-size: contain;*/
     font-family: 'Indie flower', cursive, sans-serif;
     -webkit-text-shadow: 1px 1px 2px #000000;
     -moz-text-shadow: 1px 1px 2px #000000;
@@ -74,19 +73,10 @@ body {
     margin-bottom: 230px;
 }
 
-.strict-container {
-    position: absolute;
-    margin-top: 149px;
-    margin-left: 50px;
-    padding: 0px;
-    width: 29%;
-    line-height: 0;
-}
-
 .footer-container {
     position: absolute;
     background-color: rgba(112, 112, 112, 0.3);
-    color:#000000;
+    color: #000000;
     bottom: 0;
     text-align: center;
     font-weight: 600;
@@ -113,142 +103,142 @@ body {
     background-color: #3da23c;
     border-top-left-radius: 96%;
     -webkit-box-shadow: inset 0 0 50px #31822c,
-    inset 20px 0 80px #254e00 ,
-    inset -20px 0 80px #a5ce8d,
-    inset 20px 0 300px #37bd2b,
-    inset -20px 0 300px #2a4c14,
-    1px 0 #000;
+        inset 20px 0 80px #254e00,
+        inset -20px 0 80px #a5ce8d,
+        inset 20px 0 300px #37bd2b,
+        inset -20px 0 300px #2a4c14,
+        1px 0 #000;
     box-shadow: inset 0 0 50px #31822c,
-    inset 20px 0 80px #254e00,
-    inset -20px 0 80px #a5ce8d,
-    inset 20px 0 300px #37bd2b,
-    inset -20px 0 300px #2a4c14,
-    1px 0 #000;
+        inset 20px 0 80px #254e00,
+        inset -20px 0 80px #a5ce8d,
+        inset 20px 0 300px #37bd2b,
+        inset -20px 0 300px #2a4c14,
+        1px 0 #000;
 }
 
 .red-side {
     background-color: #a90302;
     border-top-right-radius: 96%;
     -webkit-box-shadow: inset 0 0 50px #e00b1b,
-    inset 20px 0 80px #961718,
-    inset -20px 0 80px #ef8787,
-    inset 0px 0 300px #bd2b2b,
-    inset -20px 0 300px #542727,
-    1px 0 #000;
+        inset 20px 0 80px #961718,
+        inset -20px 0 80px #ef8787,
+        inset 0px 0 300px #bd2b2b,
+        inset -20px 0 300px #542727,
+        1px 0 #000;
     box-shadow: inset 0 0 50px #e00b1b,
-    inset 20px 0 80px #961718,
-    inset -20px 0 80px #ef8787,
-    inset 0px 0 300px #bd2b2b,
-    inset -20px 0 300px #542727,
-    1px 0 #000;
+        inset 20px 0 80px #961718,
+        inset -20px 0 80px #ef8787,
+        inset 0px 0 300px #bd2b2b,
+        inset -20px 0 300px #542727,
+        1px 0 #000;
 }
 
 .yellow-side {
     background-color: #b5b311;
     border-bottom-left-radius: 96%;
     -webkit-box-shadow: inset 0 0 50px #efdb3f,
-    inset 20px 0 80px #50450d,
-    inset -20px 0 80px #c1b97a,
-    inset 20px 0 300px #f5df1f,
-    inset -20px 0 300px #ab9d23,
-    1px 0 #000;
+        inset 20px 0 80px #50450d,
+        inset -20px 0 80px #c1b97a,
+        inset 20px 0 300px #f5df1f,
+        inset -20px 0 300px #ab9d23,
+        1px 0 #000;
     box-shadow: inset 0 0 50px #efdb3f,
-    inset 20px 0 80px #50450d,
-    inset -20px 0 80px #c1b97a,
-    inset 20px 0 300px #f5df1f,
-    inset -20px 0 300px #ab9d23,
-    1px 0 #000;
+        inset 20px 0 80px #50450d,
+        inset -20px 0 80px #c1b97a,
+        inset 20px 0 300px #f5df1f,
+        inset -20px 0 300px #ab9d23,
+        1px 0 #000;
 }
 
 .blue-side {
     background-color: #0100a7;
     border-bottom-right-radius: 96%;
     -webkit-box-shadow: inset 0 0 50px #2f5eef,
-    inset 20px 0 80px #3836b9,
-    inset -20px 0 80px #aebaf1,
-    inset 20px 0 300px #13029c,
-    inset -20px 0 300px #101842,
-    1px 0 #000;
+        inset 20px 0 80px #3836b9,
+        inset -20px 0 80px #aebaf1,
+        inset 20px 0 300px #13029c,
+        inset -20px 0 300px #101842,
+        1px 0 #000;
     box-shadow: inset 0 0 50px #2f5eef,
-    inset 20px 0 80px #3836b9,
-    inset -20px 0 80px #aebaf1,
-    inset 20px 0 300px #13029c,
-    inset -20px 0 300px #101842,
-    1px 0 #000;
+        inset 20px 0 80px #3836b9,
+        inset -20px 0 80px #aebaf1,
+        inset 20px 0 300px #13029c,
+        inset -20px 0 300px #101842,
+        1px 0 #000;
 }
 
 /* Game Board Colors With Light */
 
-.green-light {
+.green-side.light {
     background-color: rgba(78, 206, 55, 0.4);
     -webkit-box-shadow: inset 0 0 50px #31822c,
-    inset 20px 0 80px #5fb928,
-    inset -20px 0 80px #37bd2b,
-    inset 20px 0 300px #deffca,
-    inset -20px 0 300px #254e00,
-    0 0 50px #1b7915,
-    1px 0 #000;
+        inset 20px 0 80px #5fb928,
+        inset -20px 0 80px #37bd2b,
+        inset 20px 0 300px #deffca,
+        inset -20px 0 300px #254e00,
+        0 0 50px #1b7915,
+        1px 0 #000;
     box-shadow: inset 0 0 50px #31822c,
-    inset 20px 0 80px #5fb928,
-    inset -20px 0 80px #37bd2b,
-    inset 20px 0 300px #deffca,
-    inset -20px 0 300px #254e00,
-    0 0 50px #1b7915,
-    1px 0 #000;
+        inset 20px 0 80px #5fb928,
+        inset -20px 0 80px #37bd2b,
+        inset 20px 0 300px #deffca,
+        inset -20px 0 300px #254e00,
+        0 0 50px #1b7915,
+        1px 0 #000;
 }
 
-.red-light {
+.red-side.light {
     background-color: rgba(220, 0, 0, 0.4);
     -webkit-box-shadow: inset 0 0 50px #e00b0b,
-    inset 20px 0 80px #d61f1f,
-    inset -20px 0 80px #bd2b2b,
-    inset 0px 0 300px #ffc6c6,
-    inset -20px 0 300px #961717,
-    0 0 50px #730d0d,
-    1px 0 #000;
+        inset 20px 0 80px #d61f1f,
+        inset -20px 0 80px #bd2b2b,
+        inset 0px 0 300px #ffc6c6,
+        inset -20px 0 300px #961717,
+        0 0 50px #730d0d,
+        1px 0 #000;
     box-shadow: inset 0 0 50px #e00b0b,
-    inset 20px 0 80px #d61f1f,
-    inset -20px 0 80px #bd2b2b,
-    inset 0px 0 300px #ffc6c6,
-    inset -20px 0 300px #961717,
-    0 0 50px #730d0d,
-    1px 0 #000;
+        inset 20px 0 80px #d61f1f,
+        inset -20px 0 80px #bd2b2b,
+        inset 0px 0 300px #ffc6c6,
+        inset -20px 0 300px #961717,
+        0 0 50px #730d0d,
+        1px 0 #000;
 }
 
-.yellow-light {
+.yellow-side.light {
     background-color: rgba(219, 217, 55, 0.4);
     -webkit-box-shadow: inset 0 0 50px #efdb2f,
-    inset 20px 0 80px #c3b21e,
-    inset -20px 0 80px #f5df1f,
-    inset 20px 0 300px #fffad2,
-    inset -20px 0 300px #ab9d23,
-    0 0 50px #736915,
-    1px 0 #000;
+        inset 20px 0 80px #c3b21e,
+        inset -20px 0 80px #f5df1f,
+        inset 20px 0 300px #fffad2,
+        inset -20px 0 300px #ab9d23,
+        0 0 50px #736915,
+        1px 0 #000;
     box-shadow: inset 0 0 50px #efdb2f,
-    inset 20px 0 80px #c3b21e,
-    inset -20px 0 80px #f5df1f,
-    inset 20px 0 300px #fffad2,
-    inset -20px 0 300px #ab9d23,
-    0 0 50px #736915,
-    1px 0 #000;
+        inset 20px 0 80px #c3b21e,
+        inset -20px 0 80px #f5df1f,
+        inset 20px 0 300px #fffad2,
+        inset -20px 0 300px #ab9d23,
+        0 0 50px #736915,
+        1px 0 #000;
 }
 
-.blue-light {
+.blue-side.light {
     background-color: rgba(1, 0, 255, 0.4);
     -webkit-box-shadow: inset 0 0 50px #2f3eef,
-    inset 20px 0 80px #425fff,
-    inset -20px 0 80px #13029c,
-    inset 20px 0 300px #cad2f7,
-    inset -20px 0 300px #3836b9,
-    0 0 50px #0100a5,
-    1px 0 #000;
+        inset 20px 0 80px #425fff,
+        inset -20px 0 80px #13029c,
+        inset 20px 0 300px #cad2f7,
+        inset -20px 0 300px #3836b9,
+        0 0 50px #0100a5,
+        1px 0 #000;
     box-shadow: inset 0 0 50px #2f3eef,
-    inset 20px 0 80px #425fff,
-    inset -20px 0 80px #13029c,
-    inset 20px 0 300px #cad2f7,
-    inset -20px 0 300px #3836b9,
-    0 0 50px #0100a5,
-    1px 0 #000;
+        inset 20px 0 80px #425fff,
+        inset -20px 0 80px #13029c,
+        inset 20px 0 300px #cad2f7,
+        inset -20px 0 300px #3836b9,
+        0 0 50px #0100a5,
+        1px 0 #000;
 }
 
 
@@ -278,18 +268,18 @@ body {
 }
 
 
-#turn-screen {
+#score {
     position: absolute;
     top: 70px;
     color: #000000;
-    background-color: #C0C0C0;
+    /*background-color: #C0C0C0;*/
     width: 13vw;
     height: 10vw;
     max-width: 78px;
     max-height: 53px;
     margin: 0 auto;
-    border: solid 2px #d3d3d3 ;
-    border-radius: 15px;
+    /*border: solid 2px #d3d3d3;*/
+    border-radius: 2.3vw;
     font-size: 1.8em;
     box-shadow: 2px 2px 15px #000000;
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
@@ -304,11 +294,11 @@ body {
     line-height: 3em;
     font-weight: bold;
     font-size: 1.2em;
-    background-color: #C0C0C0;
+    /*background-color: #C0C0C0;*/
     height: 68px;
     width: 68px;
     border-radius: 50%;
-    border: solid 1.5px #d3d3d3;
+    /*border: solid 1.5px #d3d3d3;*/
     -webkit-text-shadow: none;
     -moz-text-shadow: none;
     -o-text-shadow: none;
@@ -334,9 +324,6 @@ body {
     transition: transform .2s, -webkit-transform .2s;
 }
 
-.strict-switch {
-    margin-top: 17px;
-}
 
 input[type="checkbox"] {
     position: relative;
@@ -376,19 +363,22 @@ input:checked[type="checkbox"]:before {
     left: 35px;
 }
 
-#message {
-    margin-right: 40px;
+#enableNotifications,
+#enableStrict{
+    margin-left: 88px;
+
 }
 
-.text1 {
-    margin-right: 20px;
+.text1,
+.text2 {
+    text-align: center;
+    padding-bottom: 10px;
+
 }
 
-/* Modals Section */
 
-/* Buttons */
-
-#how-to-play-button, #settings-button {
+#how-to-play-button,
+#settings-button {
     width: 22.1vw;
     height: 9.7vw;
     max-width: 153px;
@@ -397,7 +387,7 @@ input:checked[type="checkbox"]:before {
     padding-top: 0;
     margin: 10px;
     border: none;
-    color:#000000;
+    color: #000000;
     background-color: rgba(112, 112, 112, 0.3);
     font-size: 17px;
     font-weight: 800;
@@ -411,7 +401,7 @@ input:checked[type="checkbox"]:before {
 #close-button,
 #close-button-2,
 #close-button-3,
-#start-modal-button,
+#level-message-ok, #start-modal-button,
 #start-modal-win-button {
     border: none;
     width: 4.8em;
@@ -422,6 +412,7 @@ input:checked[type="checkbox"]:before {
 #close-button:active,
 #close-button-2:active,
 #close-button-3:active,
+#level-message-ok:active,
 #start-modal-button:active,
 #start-modal-win-button:active {
     border: none;
@@ -461,7 +452,7 @@ input:checked[type="checkbox"]:before {
 .win-modal-content {
     background: url(../images/hip-square.png) no-repeat center center;
     background-size: cover;
-    color: #fff;
+    color: #000000;
     font-family: 'Arhitects Daughter', cursive, sans-serif;
     top: 3vh;
     width: 90%;
@@ -478,6 +469,11 @@ input:checked[type="checkbox"]:before {
     font-size: 2em;
 }
 
+#level-modal-header {
+    text-align: center;
+    font-size: 1.5em;
+}
+
 .howToPlay-modal-body {
     font-family: 'Arhitects Daughter', cursive sans-serif;
     height: 55vh;
@@ -491,18 +487,20 @@ input:checked[type="checkbox"]:before {
     animation: scrollDown 0.7s alternate-reverse infinite ease-in-out;
 }
 
+
 /* Media Queries */
 
 @media screen and (max-width:600px) {
-    
-    #turn-screen {
+
+    #score {
         top: 11.5vw;
         width: 13vw;
         height: 9vw;
-        font-size: 3.7vw;
+        font-size: 5.7vw;
         line-height: 9.5vw;
         border-radius: 2.3vw;
     }
+
     .start-btn {
         font-size: 2.6vw;
         height: 11.3vw;
@@ -511,18 +509,13 @@ input:checked[type="checkbox"]:before {
         margin-top: 22.8vw;
         padding: 1.6vw 1.4vw;
     }
+
     .start-btn:active {
         font-size: 2.5vw;
         padding-top: 1.8vw;
     }
-    .strict-container {
-        font-size: 2.6vw;
-        margin-top: 24.7vw;
-        margin-left: 8.3vw;
-    }
-    .strict-switch {
-        margin-top: 2.7vw;
-    }
+
+
     input[type="checkbox"] {
         height: 6.1vw;
         width: 11.3vw;
@@ -531,6 +524,7 @@ input:checked[type="checkbox"]:before {
         -o-box-shadow: inset 0 0 2vw rgb(103, 103, 103);
         box-shadow: inset 0 0 2vw rgb(103, 103, 103);
     }
+
     input[type="checkbox"]:before {
         height: 6.1vw;
         width: 6.1vw;
@@ -539,10 +533,13 @@ input:checked[type="checkbox"]:before {
     input:checked[type="checkbox"]:before {
         left: 6.1vw;
     }
-    #rules-button {
+
+    #how-to-play-button,
+    #settings-button {
         font-size: 2.7vw;
         border-radius: 3vw;
     }
+
     .green-side {
         border-top-left-radius: 47vw;
     }
@@ -564,27 +561,93 @@ input:checked[type="checkbox"]:before {
     .modal-header h5 {
         font-size: 7.7vw;
     }
+
+    .start-btn {
+        font-size: 2.7vw;
+        height: 11.3vw;
+        width: 11.3vw;
+        margin-right: 0.47vw;
+        margin-top: 22.8vw;
+        padding: 1.6vw 1.4vw;
+    }
+
+    #enableNotifications,
+    #enableStrict {
+        margin-left: 118px;
+
+    }
 }
 
+@media screen and (min-width:404px) and (max-width:568px) {
+
+    #enableNotifications,
+    #enableStrict {
+        margin-left: 138px;
+
+    }
+
+     .start-btn {
+        font-size: 2.7vw;
+        height: 11.3vw;
+        width: 11.3vw;
+        margin-right: 0.53vw;
+        margin-top: 22.8vw;
+        padding: 1.6vw 1.4vw;
+    }
+
+}
+
+@media screen and (min-width:421px) and (max-width:575px) {
+
+    #enableNotifications,
+    #enableStrict {
+        margin-left: 35vw;
+
+    }
+
+     .start-btn {
+        font-size: 2.7vw;
+        height: 11.3vw;
+        width: 11.3vw;
+        margin-right: 0.53vw;
+        margin-top: 22.8vw;
+        padding: 1.6vw 1.4vw;
+    }
+
+}
+
+@media screen and (max-width:320px) {
+    #enableNotifications,
+    #enableStrict {
+        margin-left: 98px;
+
+    }
+}
 @media screen and (max-width:350px) {
     .heading-container h1 {
         font-size: 1.8em;
     }
-    #rules-button {
+
+    #how-to-play-button {
         font-size: 2.5vw;
     }
+
     .green-side {
         border-top-left-radius: 45vw;
     }
+
     .red-side {
         border-top-right-radius: 45vw;
     }
+
     .yellow-side {
         border-bottom-left-radius: 45vw;
     }
+
     .blue-side {
         border-bottom-right-radius: 45vw;
     }
+
 }
 
 @media screen and (max-height:830px) {
@@ -599,6 +662,7 @@ input:checked[type="checkbox"]:before {
     from {
         margin-top: 0;
     }
+
     to {
         margin-top: 8px;
     }
@@ -608,7 +672,10 @@ input:checked[type="checkbox"]:before {
     from {
         margin-top: 0;
     }
+
     to {
         margin-top: 8px;
     }
 }
+
+

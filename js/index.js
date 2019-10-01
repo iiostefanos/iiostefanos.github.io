@@ -1,321 +1,317 @@
-// Variables
+/*jslint devel: true */
 
-let order = [];
-let playerOrder = [];
-let strictMode = true;
-let playInterval, playTimeout, computerCount, playerCount, turn;
+//Variables
 
-// Making use of jQuery variables like buttons, sides, modals, number and message(s) are targetted.
+var showPatternInterval;
+var currentPattern = [];
+var currentLevel = 1;
+var playerClickNumber = 0;
+var notificationsEnabled = false;
+var strictEnabled = false;
 
-const countText = document.getElementById("turn-screen");
-const side = document.getElementsByClassName('side');
-const greenSide = document.getElementById("1");
-const redSide = document.getElementById("2");
-const yellowSide = document.getElementById("3");
-const blueSide = document.getElementById("4");
-const playButton = document.getElementById("start");
-const strictSwitch = document.getElementById("strict");
-const modalScroll = document.getElementById('modal-scroll');
-const startModal = document.getElementById("start-modal-button");
-const startWinModal = document.getElementById("start-modal-win-button");
-const loseModalDisplay = document.getElementById("lose-modal-display");
-const winModalDisplay = document.getElementById("win-modal-display");
 
-/* 
-The jQuery ready method can have inside the code and will start to run as soon as the DOM (Document Object Modal) is ready to execute the JavaScript code.
-*/
-
-$(document).ready(function() {
-
-    // Upon click this jQuery function will allow modal scroll icon to scroll down.
-
-    $(modalScroll).on('click', function(e) {
-        var linkHref = $(this).attr('href');
-        e.preventDefault();
-        $('.modal-body').animate({
-            scrollTop: $(linkHref).offset().top
-        }, 1000);
-    });
-
-    /* 
-    3 Click functions that have assigned the startButtonClick jQuery function in order to allow the player to play a new game..
-    */
-
-    $(playButton).click(function() {
-        startGame();
-    });
-
-    $(startModal).on("click", function() {
-        startGame();
-    });
-
-    $(startWinModal).on("click", function() {
-        startGame();
-    });
-
-    /*
-   A function to verify if the STRICT slider is On (true) or Off (false) when it's clicked. If On (true) then it will return to its default setting (ready to start a new game).
-    */
-
-    $(strictSwitch).on("click", function() {
-        if (strictSwitch.checked == true) {
-            strictMode = true;
-            turn = 1;
-            $(".side").addClass('disabled');
-            clearInterval(playInterval);
-            if ($(countText).text() == "|") {
-                $(countText).text("|");
-            }
-            else {
-                $(countText).text("0");
-            }
-            setTimeout(function() {
-                eraseLightOnAllSides();
-            }, 600);
-        }
-        else {
-            strictMode = false;
-        }
-    });
-
-    /* 
-    Clicking on each of the sides, it will push a number into the player's instance array based on which has been clicked.  After that, it will run a light and sound function, based on the color.    */
-
-    $(side).click(function() {
-        clearTimeout(playTimeout);
-        eraseLightOnAllSides();
-        let sideId = $(this).attr('id');
-        if (sideId == 1) {
-            SoundPlusGreenLight();
-            playerOrder.push(parseInt(sideId));
-        }
-        if (sideId == 2) {
-            SoundPlusRedLight();
-            playerOrder.push(parseInt(sideId));
-        }
-        if (sideId == 3) {
-            SoundPlusYellowLight();
-            playerOrder.push(parseInt(sideId));
-        }
-        if (sideId == 4) {
-            SoundPlusBlueLight();
-            playerOrder.push(parseInt(sideId));
-        }
-        verify();
-    });
+// initialize all tooltips 
+$('[data-toggle="tooltip"]').tooltip({
+    boundary: 'window'
 });
 
-/*
-This function has the role to allow the player to start a new game,  setting everything back to default and generating the game's first instance. */
+// Making use of jQuery variables like buttons, sides, modals, score and message(s) are targetted.
+const score$ = $("#score"); 
+const sides$ = $(".side");
+const winModal$ = $('#winModal');
+const winModalDisplay$ = $('#win-modal-display');
+const loseModal$ = $('#loseModal');
+const loseModalScore$ = $("#lose-modal-score");
+const levelModal$ = $("#levelModal");
+const levelModalTitle$ = $("#level-modal-title");
+const levelModalContent$ = $("#level-modal-content");
+const levelMessages = [ {
+    title:"Level 1",
+    message:"Don't be to harsh on yourself. You've just started"
+}, {
+    title:"Level 2",
+    message:"Roses are red, violets are blue... You have just went past level two"
+}, {
+    title:"Level 3",
+    message: "Stick with it. Nearly there !"
+}, {
+    title:"Level 4",
+    message:"Not failed. Just  another 16 levels more"
+}, {
+    title:"Level 5",
+    message:"By the way, did you read the rules ?!?"
+}, {
+    title:"Level 6",
+    message:"It's not that hard. Just focus more!"
+}, {
+    title:"Level 7",
+    message:"You are doing just fine,... for now !"
+}, {
+    title:"Level 8",
+    message:'You are doing just fine,... for now !'
+}, {
+    title:"Level 9",
+    message:"Nein or nine? Nein means 'No', but you get a 'Yes!'"
+}, {
+    title:"Level 10",
+    message:"Oh, 10 more levels and you actually will win !"
+}, {
+    title:"Level 11",
+    message:"Seven-Eleven and you'll get even."
+}, {
+    title:"Level 12",
+    message:"One step at a time. There's no rush!"
+}, {
+    title:"Level 13",
+    message:"If you got 'til here, you should try more."
+}, {
+    title:"Level 14",
+    message:"Do not be discouraged if you fail a few times."
+}, {
+    title:"Level 15",
+    message:"Change the way you look at things and the things you look at change."
+    
+}, {
+    title:"Level 16",
+    message:"Luck is what you have left over after you give 100%." 
+}, {
+     title:"Level 17",
+    message:"Some days you’re up. Some days you’re down."
+}, {
+     title:"Level 18",
+    message:"It takes less time to do things right than to explain why you did it wrong."
+}, {
+     title:"Level 19",
+    message:"Get up, get up, get up!!! Happiness is not the absence of problems, it’s the ability to deal with them."
+} ]
 
-function startGame() {
-    clearInterval(playInterval);
-    eraseLightOnAllSides();
-    $(countText).text('0');
-    order = [];
-    turn = 0;
-    $(".side").addClass('disabled');
-    randomNumber();
-    startPlay();
+/* A Click function that has assigned the action of starting the game whenever the 'PLAY' button is pressed. */
+
+
+$('[action="start"]').click(function () {
+    startGame();
+});
+
+/* A Click function for the 'Okay' button. */
+
+$('#level-message-ok').click(function () {
+    nextLevel();
+});
+
+/* Allows the player to choose if after each level completed will receive a message/quote. */
+
+$("#enableNotifications").on("click", function () {
+    notificationsEnabled = $(this).is(':checked');
+});
+
+
+/* This function verifies if STRICT Mode is enabled */
+
+$("#enableStrict").on("click", function () {
+    strictEnabled = $(this).is(':checked');
+});
+
+
+
+/* Here it is verified which side is clicked and highlighted */
+
+function onSideClick(side) {
+    if ($(`.${side}-side`).hasClass('disabled')) {
+        return;
+    }
+
+    highlightSide(side, 700);
+    playerClickNumber++;
+    checkSide(side);
 }
 
-/*
-Here, it takes place a random number from 1 (one) to 4 (four) and after that the number will be pushed into the instance array.
-*/
+/* This function will clear the lighs on all sides in a time interval of 400 milliseconds. */
 
-function randomNumber() {
-    randomNum = Math.ceil(Math.random() * 4);
-    order.push(randomNum);
-    console.log(order);
+function clearLights(time) {
+    if (time === null) {
+        time = 400;
+    } 
+    
+    setTimeout(function () {
+        sides$.removeClass('light');
+    }, time);
 }
 
-/* 
-It's the computer's turn to generate an instance. It will add 1 to turn, and that way it will increase. After this, it will set the player's and computer's count back to '0' and set the player's instance back to an empty string.
-It runs the player's interval which will keep a switch statement that will verify each of the number inside the instance array, generating the sound and light that corresponds to the number found and doing a break after each one, that way will be able o avoid the light and sound from the previous side that was selected. It will do this until it will reach the number value of the computer's count.
-At the point the array instance lentgh matches the computer's count it will stop the play interval and allow the player to click. Then, the computer's count increases with 1.*/
+/* Sound for each side is played with the help of this function. */
 
-function startPlay() {
-    turn++;
-    playerCount = 0;
-    computerCount = 0;
-    playerOrder = [];
-    playInterval = setInterval(function() {
-        switch (order[computerCount]) {
-            case 1:
-                SoundPlusGreenLight();
-                break;
-            case 2:
-                SoundPlusRedLight();
-                break;
-            case 3:
-                SoundPlusYellowLight();
-                break;
-            case 4:
-                SoundPlusBlueLight();
-                break;
-            default:
-                break;
-        }
-        if (order.length === computerCount) {
-            clearInterval(playInterval);
-            $(".side").removeClass('disabled');
-        }
-        computerCount++;
-    }, 800);
-}
+function playSound(side) {
+    if (!side) {
+        return;
+    }
 
-/* 
-Sounds and lights are being generated here.
-*/
+    let sound = $(`#sound-${side}`)[0];
 
-function SoundPlusGreenLight() {
-    $(greenSide).addClass('green-light')
-    playerTimeout();
-    soundListen('green');
-}
-
-function SoundPlusRedLight() {
-    $(redSide).addClass('red-light')
-    playerTimeout();
-    soundListen('red');
-}
-
-function SoundPlusYellowLight() {
-    $(yellowSide).addClass('yellow-light')
-    playerTimeout();
-    soundListen('yellow');
-}
-
-function SoundPlusBlueLight() {
-    $(blueSide).addClass('blue-light')
-    playerTimeout();
-    soundListen('blue');
-}
-
-/* 
-Lights of all of the sides are being erased, with a timeout function that will erase all lights after a time interval.
-*/
-
-function playerTimeout() {
-    playTimeout = setTimeout(function() {
-        eraseLightOnAllSides();
-    }, 400);
-}
-
-/*
-Here all the sounds are being generated. Taking the argument of 'soundDo' and every time the function is called, it will take the argument of whatever sound needs to be implemented after 'sound-'.
-*/
-
-function soundListen(soundDo) {
-    let sound = $(`#sound-${soundDo}`)[0];
     sound.currentTime = 0;
     sound.play();
 }
 
+
+/* Each side will be highlighted and having its own specific sound. */
+
+function highlightSide(side, time) {
+    $(`.${side}-side`).addClass('light');
+    playSound(side);
+    clearLights(400);
+}
+
+/* This function has the role to allow the player to start a new game.  */
+
+function initializeGame() {
+    clearInterval(showPatternInterval);
+    clearLights();
+    updateScore(0);
+    currentLevel = 1;
+    currentPattern = [];
+    playerClickNumber = 0;
+}
+
+
 /* 
-Here, the lights are being removed, and all of the colors go back to their original state from being flashed.  
-*/
+Here, it takes place a random number from 1 (one) to 4 (four) and after that the number will be pushed into the instance array.
+It runs the player's interval which will keep a switch statement that will verify each of the number inside the instance array, generating the sound and light that corresponds to the number found and doing a break after each one, that way will be able o avoid the light and sound from the previous side that was selected. It will do this until it will reach the number value of the computer's count.*/
 
-function eraseLightOnAllSides() {
-    $(greenSide).removeClass("green-light");
-    $(redSide).removeClass("red-light");
-    $(yellowSide).removeClass("yellow-light");
-    $(blueSide).removeClass("blue-light");
-}
+function generatePattern(level) {
+    var side = null;
 
-// All of the colours will flash at the same time.
+    var number = Math.ceil(Math.random() * 4);
 
-function addLightOnAllSides() {
-    $(greenSide).addClass("green-light");
-    $(redSide).addClass("red-light");
-    $(yellowSide).addClass("yellow-light");
-    $(blueSide).addClass("blue-light");
-}
-
-/* 
-When the player loses, this function is to order a game over modal to appear with the final score.
-*/
-
-function displayModal() {
-    $('#loseModal').modal('show');
-    $(loseModalDisplay).text(turn);
-}
-
-/*
-The game gets verified but this function, and will increase the player's count. With 2 (two) assigned variables will verify if the player's  and computer's instance match or not.
-The 'If' statement comes into place to verify each of the possibilities during the game and react accordingly.
-*/
-
-function verify() {
-    playerCount++;
-    let playerPcOrdYes = playerOrder[playerCount - 1] === order[playerCount - 1];
-    let playerPcOrdNo = playerOrder[playerCount - 1] !== order[playerCount - 1];
-    /* 
-    In this case, 'If' statement will verify that if the player arrived to 20 (twenty) on the play count, STRICT mode is On (true) and if the computer's instance array matches with the player's instance array. If 'True' the play interval will cease, the sides are deactivated and the winning function will run.
-    */
-    if (playerCount === 20 && strictMode && playerPcOrdYes) {
-        clearInterval(playInterval);
-        $(".side").addClass('disabled');
-        winGame();
+    switch (number) {
+        case 1:
+            side = 'green';
+            break;
+        case 2:
+            side = 'red';
+            break;
+        case 3:
+            side = 'yellow';
+            break;
+        case 4:
+            side = 'blue';
+            break;
+        default:
+            break;
     }
-    /* 
-    The computer's instance array is verified if it matches the player's instance array. If yes, the a new random number gets pushed into the computer's array, sides are displayed, count text gets updated to the newest score and the gameplay will run. */
-    
-    else if (playerPcOrdYes) {
-        if (playerOrder.length === turn) {
-            randomNumber();
-            $(".side").addClass('disabled');
-            $(countText).text(playerCount);
-            setTimeout(startPlay, 500);
+
+    currentPattern.push(side);
+}
+
+// shows the player the pattern needed to be followed/played
+
+function showPattern() {
+    if (!currentPattern || !currentPattern.length) return;
+
+    var stepIndex = 0;
+
+    disableSides();
+
+    showPatternInterval = setInterval(function () {
+
+        highlightSide(currentPattern[stepIndex]);
+
+
+        if (currentPattern.length === stepIndex) {
+            clearInterval(showPatternInterval);
+            enableSides();
         }
+
+        stepIndex++;
+    }, 800);
+}
+
+
+/* The game starts after the pattern has been generated and then shown.*/
+
+function startGame() {
+    initializeGame();
+    generatePattern();
+    showPattern();
+}
+
+/* Here is verified if the player clicks the same instance as shown and either the 'STRICT' mode and 'Message' mode is activated. */
+
+function checkSide(actual) {
+    var required = currentPattern[playerClickNumber - 1];
+
+    if (actual !== required && strictEnabled)  {
+        gameOver();
+        return;  
     }
-    /* 
-    The computer's instance array is verified if it matches the player's instance array, if not and STRICT mode is not active, the sides will be disabled, switch the turn back to the previous turn and light all sides, and the sound corresponding to lose will be heard together with the message "Try Again" on the count text, all the colors on the sides will be erased, the current score will be displayed and restart the previous instance again.
-    */
-    else if (playerPcOrdNo && !strictMode) {
-        $(".side").addClass('disabled');
-        turn--;
-        soundListen('lost');
-        $(countText).text('Try');
-        addLightOnAllSides();
-        setTimeout(function() {
-            eraseLightOnAllSides();
-            $(countText).text('Again');
-            setTimeout(function() {
-                $(countText).text(turn);
-                setTimeout(startPlay, 700);
-            }, 900);
-        }, 900);
+    
+    if (actual !== required && !strictEnabled)  {
+        playerClickNumber = 0;
+        playSound('lost');
+        updateScore('Try');
+        showPattern();
+        return;
     }
-    /* 
-    STRICT mode is true, the computer's instance array doesn't match with the player's instance array, 'Else' statement will display that the player lost. Sides are disabled, losing sound heard, 'Lose' message in the count text displayed and all sides flashing at once. Flash dissapears, then the modal will appear showing the player's score.
-    */
-    else {
-        $(".side").addClass('disabled');
-        soundListen('lost');
-        $(countText).text('Lose');
-        addLightOnAllSides();
-        setTimeout(function() {
-            eraseLightOnAllSides();
-            setTimeout(function() {
-                $(countText).text(turn);
-                displayModal();
-            }, 600);
-        }, 400);
+    
+    if (playerClickNumber === currentPattern.length) {
+        if (notificationsEnabled) {
+            var notification = levelMessages[currentLevel - 1];
+            levelModalTitle$.text(notification.title)
+            levelModalContent$.text(notification.message)
+            levelModal$.modal('show');
+    
+        } else {
+            nextLevel(700);
+        }
+
     }
 }
 
-/* 
-When the player becomes the WINNER  of the Simon Game, this function will show WIN in the count text, all sides will flash, together with the win sound and after the win modal will be displayed with the max score of 20.
-*/
+/* This function checks at which level the player is, if on level 20 then there's the WINNER, if not will go to next level, updateing the score after each one.*/
 
-function winGame() {
-    $(countText).text("WIN!");
-    clearTimeout(playerTimeout);
-    addLightOnAllSides();
-    setTimeout(function() {
-        $(winModalDisplay).text(turn);
-        $('#winModal').modal('show');
-        soundListen('win');
-    }, 1400);
+function nextLevel(time) {
+    if(currentLevel === 20) {
+       return gameWin();
+    }
+    updateScore(currentLevel);
+    disableSides();
+    currentLevel++;
+    playerClickNumber = 0;
+
+    setTimeout(function () {
+        generatePattern();
+        showPattern();
+    }, time);
+}
+
+
+/* This function is when the player has lost, will be informed with a modal, score will be displayed together with a specific sound. */
+
+function gameOver() {
+    loseModalScore$.text(currentLevel - 1);
+    loseModal$.modal('show');
+    playSound('lost');
+    updateScore(0);
+}
+
+/* When the player wins the Simon Game, this function will display the Winning Modal and the sample sound for winning can be heard.. */
+
+function gameWin() {
+    winModalDisplay$.text(currentLevel);
+    winModal$.modal('show');
+    playSound('win');
+}
+
+
+/* This function will disable the light on all sides. */
+
+function disableSides() {
+    sides$.addClass('disabled');
+}
+
+/* This function will enable the light on all sides. */
+function enableSides() {
+    sides$.removeClass('disabled');
+}
+
+/* The score will be updated using this function. */
+function updateScore(score) {
+    score$.text(score);
 }
